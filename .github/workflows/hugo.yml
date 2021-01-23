@@ -1,10 +1,20 @@
-- name: Publish Hugo Site
-  uses: tcitry/publish-hugo-site@v1.0
-  env:
-    TARGET_REPO: "kenkeiras/hackliza.github.io"
-    # CNAME: "hackliza.gal"
-    HUGO_VERSION: "0.74.3"
-  secrets:
-    - "TOKEN"
-  args:
-    - "gh-pages"
+name: Hugo blog
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Publish site"
+        uses: tcitry/publish-hugo-site@v1.0
+        env:
+          TARGET_REPO: "kenkeiras/hackliza.github.io"
+          # CNAME: "hackliza.gal"
+          HUGO_VERSION: "0.74.3"
+        secrets:
+          - "TOKEN"
+        args:
+          - "gh-pages"
