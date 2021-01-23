@@ -1,7 +1,7 @@
 name: Hugo blog
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "github-actions"]
 
 jobs:
   publish:
