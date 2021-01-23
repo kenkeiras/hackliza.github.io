@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v1
+        with:
+          submodules: true
 
       - name: Deploy the site
         uses: benmatselby/hugo-deploy-gh-pages@master
@@ -20,4 +22,4 @@ jobs:
           TARGET_REPO: kenkeiras/hackliza.github.io
           # CNAME: hackliza.gal
           TARGET_BRANCH: gh-pages
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ github.token }}
