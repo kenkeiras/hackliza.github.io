@@ -1,20 +1,23 @@
-name: Hugo blog
+name: Push to GitHub Pages on push to master
 on:
   push:
-    branches: ["main", "github-actions"]
+    branches:
+      - master
+      - github-actions
 
 jobs:
-  publish:
+  build:
+    name: Deploy
     runs-on: ubuntu-latest
-
     steps:
-      - name: "Publish site"
-        uses: tcitry/publish-hugo-site@v1.0
+      - name: Checkout main
+        uses: actions/checkout@v1
+
+      - name: Deploy the site
+        uses: benmatselby/hugo-deploy-gh-pages@master
         env:
-          TARGET_REPO: "kenkeiras/hackliza.github.io"
-          # CNAME: "hackliza.gal"
-          HUGO_VERSION: "0.74.3"
-        secrets:
-          - "TOKEN"
-        args:
-          - "gh-pages"
+          HUGO_VERSION: 0.74.3
+          TARGET_REPO: kenkeiras/hackliza.github.io
+          # CNAME: hackliza.gal
+          TARGET_BRANCH: gh-pages
+          TOKEN: ${{ secrets.TOKEN }}
