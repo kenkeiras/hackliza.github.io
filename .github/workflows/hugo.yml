@@ -14,8 +14,8 @@ action "publish-hugo-site" {
   needs = "master branch"
   uses = "tcitry/publish-hugo-site@v1.0"
   env = {
-    TARGET_REPO = "hackliza/hackliza.github.io"
-    CNAME = "hackliza.gal"
+    TARGET_REPO = "kenkeiras/hackliza.github.io"
+    # CNAME = "hackliza.gal"
     HUGO_VERSION = "0.74.3"
   }
   secrets = ["TOKEN"]
