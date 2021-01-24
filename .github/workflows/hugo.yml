@@ -22,4 +22,4 @@ jobs:
           TARGET_REPO: kenkeiras/hackliza.github.io
           # CNAME: hackliza.gal
           TARGET_BRANCH: gh-pages
-          TOKEN: "kenkeiras:${{ secrets.GITHUB_TOKEN }}"
+          TOKEN: "test:${{ secrets.GITHUB_TOKEN }}"
